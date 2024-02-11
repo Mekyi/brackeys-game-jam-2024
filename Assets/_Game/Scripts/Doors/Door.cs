@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public DoorTraits Traits { get; private set; }
+
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -11,12 +13,20 @@ public class Door : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void ChangeSprite(Sprite sprite)
+    public void SetTraits(DoorTraits traits)
+    {
+        Traits = traits;
+        
+        SetSprite(traits.Shape.Sprite);
+        SetColor(traits.Color.Color);
+    }
+
+    private void SetSprite(Sprite sprite)
     {
         _spriteRenderer.sprite = sprite;
     }
 
-    public void ChangeColor(Color color)
+    private void SetColor(Color color)
     {
         _spriteRenderer.color = color;
     }

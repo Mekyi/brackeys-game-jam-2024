@@ -35,11 +35,15 @@ public class DoorGenerator : MonoBehaviour
         var newDoorObject = Instantiate(_doorBasePrefab);
         var door = newDoorObject.GetComponent<Door>();
 
-        var randomDoorColor = _availableColors[Random.Range(0, _availableColors.Count)].Color;
-        door.ChangeColor(randomDoorColor);
-        
-        var randomDoorSprite = _availableShapes[Random.Range(0, _availableShapes.Count)].Sprite;
-        door.ChangeSprite(randomDoorSprite);
+        DoorColor randomColor = _availableColors[Random.Range(0, _availableColors.Count)];
+        DoorShape randomShape = _availableShapes[Random.Range(0, _availableShapes.Count)];
+
+        DoorTraits doorTraits = new(
+            color: randomColor, 
+            shape: randomShape
+        );
+
+        door.SetTraits(doorTraits);
 
         return newDoorObject;
     }

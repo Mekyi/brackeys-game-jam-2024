@@ -486,11 +486,39 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableColors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableShapes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
       propertyPath: _doorShapeList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 7cc09df9b9f33fe459ae67c8445bdea6, type: 2}
     - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
       propertyPath: _doorShapeList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 995da13e38d6d464f9bd602278c33946, type: 2}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableColors.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableColors.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableColors.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f9e7dae75d6214f84d56178b10bf6c, type: 2}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableShapes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cc09df9b9f33fe459ae67c8445bdea6, type: 2}
+    - target: {fileID: 5783936658884422042, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
+      propertyPath: _availableShapes.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 995da13e38d6d464f9bd602278c33946, type: 2}
     - target: {fileID: 8622432499580615279, guid: 50fc7ea1ad426484eaf1c6a96add4a3c, type: 3}
