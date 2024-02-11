@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8622432499580615279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3449935778771579529}
+  - component: {fileID: 5783936658884422042}
+  m_Layer: 0
+  m_Name: DoorGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3449935778771579529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622432499580615279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5783936658884422042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622432499580615279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d861bfd7002b35744aec6c4a37cfd012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorColorList:
+  - {fileID: 11400000, guid: f6d8233717231d04aba45d00bc340a16, type: 2}
+  - {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
+  - {fileID: 11400000, guid: f5f9e7dae75d6214f84d56178b10bf6c, type: 2}
+  _doorShapeList:
+  - {fileID: 11400000, guid: 6e08e77b9e2328741a751b472a131247, type: 2}
+  - {fileID: 11400000, guid: 329a8b965e41f754794fd8e414373cca, type: 2}
+  - {fileID: 11400000, guid: 69b985a184dd99947a6dd84498fc4909, type: 2}
+  _doorBasePrefab: {fileID: 3263839106087171797, guid: 62f6e747a43c1914a954c9ce999ca71b, type: 3}
+  _doorSprites:
+  - {fileID: -2413806693520163455, guid: 1b5ace7a564a5e64792615493f2393c5, type: 3}
+  - {fileID: 7482667652216324306, guid: a51179239aaf6df40b30b1ae54c8309f, type: 3}
+  - {fileID: 7482667652216324306, guid: 1cbea7e8168eca64d8a22e63d2f1fa0e, type: 3}
