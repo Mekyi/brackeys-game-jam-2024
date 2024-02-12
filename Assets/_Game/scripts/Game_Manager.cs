@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
@@ -44,5 +45,13 @@ public class Game_Manager : MonoBehaviour
             lose_Screen.SetActive(true);
         }
         return result;
+    }
+
+    public void Reset_Game()
+    {
+        lose_Screen.SetActive(false);
+        victory_Screen.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("reset");
     }
 }
