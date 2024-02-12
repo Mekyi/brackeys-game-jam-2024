@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script_1 : MonoBehaviour
+public class Door_action : MonoBehaviour
 {
     bool is_Correct_Door = true;
 
