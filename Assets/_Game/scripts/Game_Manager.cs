@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
-public class Click_Manager : MonoBehaviour
+public class Game_Manager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject victory_Screen;
+
+    [SerializeField]
+    private GameObject lose_Screen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +27,7 @@ public class Click_Manager : MonoBehaviour
 
             if (hit.collider != null) // When a door is clicked, the game tells you whether it's the correct door or not
             {
-                bool result = hit.collider.gameObject.GetComponent<script_1>().DoorChosen();
+                bool result = hit.collider.gameObject.GetComponent<Door_action>().DoorChosen();
                 Right_Or_Wrong(result);
 
             }
@@ -29,6 +36,13 @@ public class Click_Manager : MonoBehaviour
 
     bool Right_Or_Wrong(bool result)
     {
+        if (result)
+        {
+            victory_Screen.SetActive(true);
+        } else
+        {
+            lose_Screen.SetActive(true);
+        }
         return result;
     }
 }
