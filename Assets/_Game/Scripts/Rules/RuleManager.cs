@@ -6,6 +6,9 @@ public class RuleManager : MonoBehaviour
 {
     public static RuleManager Instance { get; private set; }
 
+    [field: SerializeField]
+    public List<RoundConfiguration> RoundConfigurations {  get; private set; }
+
     private DoorTraits _activeRules = new DoorTraits(null, null);
 
     private void Awake()
