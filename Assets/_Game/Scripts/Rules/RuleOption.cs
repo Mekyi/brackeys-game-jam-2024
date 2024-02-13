@@ -1,4 +1,4 @@
-public enum RuleType
+public enum RuleOption
 {
     None,
     Color,

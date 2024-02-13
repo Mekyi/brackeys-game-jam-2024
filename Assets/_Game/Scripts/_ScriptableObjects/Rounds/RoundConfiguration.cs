@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoundConfiguration : ScriptableObject
 {
     [field: SerializeField]
-    public RuleType NewRule { get; private set; }
+    public RuleOption NewRule { get; private set; }
 
     // TODO Replace rule
 
