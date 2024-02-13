@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class Game_Manager : MonoBehaviour
 {
     public static Game_Manager Instance { get; private set; }
+
+    public GameState GameState { get; private set; }
+
+    public static event Action<GameState> OnGameStateChanged;
 
     [SerializeField]
     private GameObject victory_Screen;
@@ -46,6 +51,25 @@ public class Game_Manager : MonoBehaviour
 
             }
         }
+    }
+
+    public void UpdateGameState(GameState newState)
+    {
+        GameState = newState;
+
+        switch (GameState)
+        {
+            case GameState.ShowRule:
+                break;
+            case GameState.SelectDoor:
+                break;
+            case GameState.Victory:
+                break;
+            case GameState.Lose:
+                break;
+        }
+
+        OnGameStateChanged?.Invoke(newState);
     }
 
     bool Right_Or_Wrong(bool result)
