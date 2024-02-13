@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class DoorGenerator : MonoBehaviour
 {
+    public static DoorGenerator Instance { get; private set; }
+
     [SerializeField]
     private bool _testMode = false;
 
@@ -21,6 +23,17 @@ public class DoorGenerator : MonoBehaviour
     [SerializeField]
     private GameObject _doorBasePrefab;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
