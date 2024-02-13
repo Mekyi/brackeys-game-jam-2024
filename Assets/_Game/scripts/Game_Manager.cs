@@ -5,11 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
+    public static Game_Manager Instance { get; private set; }
+
     [SerializeField]
     private GameObject victory_Screen;
 
     [SerializeField]
     private GameObject lose_Screen;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
