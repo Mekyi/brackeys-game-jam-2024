@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad168145b0e54f24abe9342e03cca03b, type: 3}
   m_Name: Round 1
   m_EditorClassIdentifier: 
-  <NewRule>k__BackingField: 1
+  <NewRule>k__BackingField: 2
   <TraitPoolAdditions>k__BackingField:
   - {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
   - {fileID: 11400000, guid: f6d8233717231d04aba45d00bc340a16, type: 2}
   - {fileID: 11400000, guid: f5f9e7dae75d6214f84d56178b10bf6c, type: 2}
+  - {fileID: 11400000, guid: 57d898479a460f643985861f3dacad13, type: 2}
+  - {fileID: 11400000, guid: 50b7b2dbf3927a34cb1968d9bbdc8682, type: 2}
+  - {fileID: 11400000, guid: 504005dba9a7e1948a286e126bd96c42, type: 2}
+  - {fileID: 11400000, guid: 13ba7f8953b69a4418fcfe6ad93d8e43, type: 2}
+  - {fileID: 11400000, guid: ae604247693eaf44fb994b6a430f9b9d, type: 2}
   - {fileID: 11400000, guid: 7cc09df9b9f33fe459ae67c8445bdea6, type: 2}
-  - {fileID: 11400000, guid: 995da13e38d6d464f9bd602278c33946, type: 2}
+  - {fileID: 11400000, guid: ba8fbfa76a8d49c4f9ac3c17f897f704, type: 2}
+  - {fileID: 11400000, guid: 59322eebf94333b49bf83d3187402952, type: 2}
+  - {fileID: 11400000, guid: 3bd996a71721a9c4190afcfe8c88bfb2, type: 2}
+  - {fileID: 11400000, guid: 712475f11b155364f958690f6a5ec56f, type: 2}
   <DoorsToGenerate>k__BackingField: 5
