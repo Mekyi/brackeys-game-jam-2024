@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d339e526ee2bff748b3909d2ce1167c1, type: 3}
   m_Name: Blue
   m_EditorClassIdentifier: 
+  <RuleName>k__BackingField: Blue
   <Color>k__BackingField: {r: 0, g: 0.07612944, b: 1, a: 1}
