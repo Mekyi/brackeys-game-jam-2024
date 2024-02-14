@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -92,22 +93,24 @@ public class DoorGenerator : MonoBehaviour
             }
         }
 
-        // TODO PlaceDoors(doors);
+        PlaceDoors(doors);
 
         return currentRules;
     }
 
     private void PlaceDoors(List<GameObject> doors)
     {
-        // TODO Shuffle door orders
-        // TODO Use _doorSpots to place the doors in correct locations using the following logic
-        //- 5 positions for doors: [0, 1, 2, 3, 4]
-        //- 1 door = [2]
-        //- 2 doors = [1, 3]
-        //- 3 doors = [1, 2, 3]
-        //- 4 doors = [0, 1, 2, 3]
-        //- 5 doors = [0, 1, 2, 3, 4]
-        throw new NotImplementedException();
+        
+        var randomizedDoors = doors.OrderBy(_ => Guid.NewGuid()).ToList();
+        
+        for (int i = 0; i < randomizedDoors.Count; i++)
+        {
+            randomizedDoors[i].transform.position = _doorSpots[i].transform.position;
+            print(i);
+        }
+
+        // TODO better randomization?
+        // TODO test with different numbers of doors
     }
 
     private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null)
@@ -151,6 +154,8 @@ public class DoorGenerator : MonoBehaviour
             }
             else if (traitType == typeof(DoorShape))
             {
+               // var shapeTraits = trait as DoorShape;
+               // _availableShapes.AddRange(shapeTraits.Sprites);
                 _availableShapes.Add(trait as DoorShape);
             }
             else
@@ -189,4 +194,6 @@ public class DoorGenerator : MonoBehaviour
 
         return randomTrait;
     }
+
 }
+
