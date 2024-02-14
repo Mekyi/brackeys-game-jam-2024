@@ -66,9 +66,9 @@ public class Game_Manager : MonoBehaviour
                 break;
             case GameState.SelectDoor:
                 break;
-            case GameState.Victory:
+            case GameState.Victory: // TODO set victory UI to show up when victory happens
                 break;
-            case GameState.Lose:
+            case GameState.Lose: // TODO set lose screen to show up when loss happens
                 break;
         }
 
