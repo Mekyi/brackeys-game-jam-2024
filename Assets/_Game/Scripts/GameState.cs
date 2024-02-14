@@ -1,6 +1,6 @@
 public enum GameState
 {
-    ShowRule,
+    StartRound,
     SelectDoor,
     Victory,
     Lose

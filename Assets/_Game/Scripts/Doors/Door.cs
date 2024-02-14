@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public DoorTraits Traits { get; private set; }
+    public DoorTraitsModel Traits { get; private set; } = new DoorTraitsModel();
 
     private SpriteRenderer _spriteRenderer;
 
@@ -13,21 +13,31 @@ public class Door : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void SetTraits(DoorTraits traits)
+    public void SetTraits(DoorTraitsModel traits)
     {
         Traits = traits;
         
-        SetSprite(traits.Shape.Sprite);
-        SetColor(traits.Color.Color);
+        SetSprite();
+        SetColor();
     }
 
-    private void SetSprite(Sprite sprite)
+    private void SetSprite()
     {
-        _spriteRenderer.sprite = sprite;
+        if (Traits.Shape == null)
+        {
+            return;
+        }
+
+        _spriteRenderer.sprite = Traits.Shape.Sprite;
     }
 
-    private void SetColor(Color color)
+    private void SetColor()
     {
-        _spriteRenderer.color = color;
+        if (Traits.Color == null)
+        {
+            return;
+        }
+
+        _spriteRenderer.color = Traits.Color.Color;
     }
 }

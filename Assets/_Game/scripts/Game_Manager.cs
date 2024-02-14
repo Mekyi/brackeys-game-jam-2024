@@ -18,6 +18,8 @@ public class Game_Manager : MonoBehaviour
     [SerializeField]
     private GameObject lose_Screen;
 
+    public int CurrentRound { get; private set; } = 0;
+
     private void Awake()
     {
         if (Instance != null)
@@ -33,7 +35,7 @@ public class Game_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateGameState(GameState.StartRound);
     }
 
     // Update is called once per frame
@@ -59,7 +61,8 @@ public class Game_Manager : MonoBehaviour
 
         switch (GameState)
         {
-            case GameState.ShowRule:
+            case GameState.StartRound:
+                HandleStartRound();
                 break;
             case GameState.SelectDoor:
                 break;
@@ -70,6 +73,18 @@ public class Game_Manager : MonoBehaviour
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleStartRound()
+    {
+        // Game should end if there's no round configuration for the current round
+        if (RuleManager.Instance.RoundConfigurations.Count < CurrentRound + 1)
+        {
+            UpdateGameState(GameState.Victory);
+            return;
+        }
+
+        RuleManager.Instance.SetupRound(CurrentRound);
     }
 
     bool Right_Or_Wrong(bool result)

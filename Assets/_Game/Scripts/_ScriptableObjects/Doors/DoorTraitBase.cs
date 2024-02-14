@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class DoorTraitBase : ScriptableObject
 {
-    [SerializeField]
+    [field: SerializeField]
     public string RuleName { get; private set; }
 }
