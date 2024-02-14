@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Star Oval Hard
   m_EditorClassIdentifier: 
   <RuleName>k__BackingField: Star
-  <Sprite>k__BackingField: {fileID: 21300000, guid: a58bf3563d3a2544a90116aba356a960, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 78f9cafb3b4883e4789405431b1410e9, type: 3}
   <Shape>k__BackingField: 1
-  <Difficulty>k__BackingField: 1
+  <Difficulty>k__BackingField: 2

@@ -27,4 +27,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 59322eebf94333b49bf83d3187402952, type: 2}
   - {fileID: 11400000, guid: 3bd996a71721a9c4190afcfe8c88bfb2, type: 2}
   - {fileID: 11400000, guid: 712475f11b155364f958690f6a5ec56f, type: 2}
+  - {fileID: 11400000, guid: a5abc9a5af240e2499e45d6f5230e14c, type: 2}
+  - {fileID: 11400000, guid: b81ec60d402e6294781ad70e6833d436, type: 2}
+  - {fileID: 11400000, guid: 25da86e0f31b1534c9a9c726e6aeffb6, type: 2}
+  - {fileID: 11400000, guid: 2fd9bc32673ffd848aa1c2c267b7b733, type: 2}
+  - {fileID: 11400000, guid: 43bc5b6b02a3d5e4888f86d289b90609, type: 2}
+  - {fileID: 11400000, guid: 631e409edd3ac7645823988ce546fb25, type: 2}
+  - {fileID: 11400000, guid: 3f14afbc151837f449baa94c2803d8dd, type: 2}
+  - {fileID: 11400000, guid: 1b3a07a0cfd1ca54c8944af3823dc2fc, type: 2}
+  - {fileID: 11400000, guid: 1602b606b8752ba478472f98ad146679, type: 2}
+  - {fileID: 11400000, guid: 5b211cba0b139b947807db4e1c586fba, type: 2}
   <DoorsToGenerate>k__BackingField: 5

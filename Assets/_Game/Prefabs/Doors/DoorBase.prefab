@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694e59b9b41da65429df8856a3ddf550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _woodGrainGameObject: {fileID: 2535086701497718534}
 --- !u!65 &7262618629381300159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -217,4 +218,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.205761, y: 9.4114685, z: 0.2}
   m_Center: {x: 0.07101679, y: 0.15387034, z: 0}
-  _woodGrainGameObject: {fileID: 2535086701497718534}
