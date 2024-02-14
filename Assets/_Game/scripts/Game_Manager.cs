@@ -44,12 +44,25 @@ public class Game_Manager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            if (hit.collider != null) // When a door is clicked, the game tells you whether it's the correct door or not
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo)) // When a door is clicked, the game tells you whether it's the correct door or not
             {
-                bool result = hit.collider.gameObject.GetComponent<Door_action>().DoorChosen();
-                Right_Or_Wrong(result);
+                DoorTraitsModel results = hitInfo.transform.GetComponent<Door>().Traits;
+
+                if (results != null)
+                {
+                    if (Right_Or_Wrong(results))
+                    {
+                        //UpdateGameState(GameState.SelectDoor);
+                        print("right door");
+                    } else
+                    {
+                        //UpdateGameState(GameState.Lose);
+                        print("wrong door");
+                    }
+
+                }
+                
 
             }
         }
@@ -87,16 +100,9 @@ public class Game_Manager : MonoBehaviour
         RuleManager.Instance.SetupRound(CurrentRound);
     }
 
-    bool Right_Or_Wrong(bool result)
+    bool Right_Or_Wrong(DoorTraitsModel doorTraits)
     {
-        if (result)
-        {
-            victory_Screen.SetActive(true);
-        } else
-        {
-            lose_Screen.SetActive(true);
-        }
-        return result;
+        return doorTraits.DoorEquals(RuleManager.Instance.ActiveRules);
     }
 
     public void Reset_Game()

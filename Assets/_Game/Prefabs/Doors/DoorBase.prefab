@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5050899137234674016}
   - component: {fileID: 5867073613815865531}
   - component: {fileID: 8151273924105269786}
+  - component: {fileID: 7262618629381300159}
   m_Layer: 0
   m_Name: DoorBase
   m_TagString: Untagged
@@ -182,3 +183,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694e59b9b41da65429df8856a3ddf550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7262618629381300159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263839106087171797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.205761, y: 9.4114685, z: 0.2}
+  m_Center: {x: 0.07101679, y: 0.15387034, z: 0}

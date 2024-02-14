@@ -106,7 +106,6 @@ public class DoorGenerator : MonoBehaviour
         for (int i = 0; i < randomizedDoors.Count; i++)
         {
             randomizedDoors[i].transform.position = _doorSpots[i].transform.position;
-            print(i);
         }
 
         // TODO better randomization?
