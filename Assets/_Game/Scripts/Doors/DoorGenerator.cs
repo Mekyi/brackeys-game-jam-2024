@@ -154,8 +154,6 @@ public class DoorGenerator : MonoBehaviour
             }
             else if (traitType == typeof(DoorShape))
             {
-               // var shapeTraits = trait as DoorShape;
-               // _availableShapes.AddRange(shapeTraits.Sprites);
                 _availableShapes.Add(trait as DoorShape);
             }
             else
