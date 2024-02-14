@@ -15,6 +15,8 @@ MonoBehaviour:
   <NewRule>k__BackingField: 1
   <TraitPoolAdditions>k__BackingField:
   - {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
-  - {fileID: 11400000, guid: 750a0e7d588d166459080c0132c8a736, type: 2}
+  - {fileID: 11400000, guid: f6d8233717231d04aba45d00bc340a16, type: 2}
   - {fileID: 11400000, guid: f5f9e7dae75d6214f84d56178b10bf6c, type: 2}
-  <DoorsToGenerate>k__BackingField: 1
+  - {fileID: 11400000, guid: 7cc09df9b9f33fe459ae67c8445bdea6, type: 2}
+  - {fileID: 11400000, guid: 995da13e38d6d464f9bd602278c33946, type: 2}
+  <DoorsToGenerate>k__BackingField: 5

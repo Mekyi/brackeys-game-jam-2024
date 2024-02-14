@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1073573244a56b04485a33408cef33d3, type: 3}
-  m_Name: Square
+  m_Name: Rectangle Shape2
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 7482667652216324306, guid: a51179239aaf6df40b30b1ae54c8309f, type: 3}
+  <RuleName>k__BackingField: Shape2
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 164df05e4f143a842b5aead3302b2549, type: 3}

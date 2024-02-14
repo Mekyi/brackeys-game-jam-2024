@@ -481,6 +481,18 @@ PrefabInstance:
       propertyPath: _testMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8540956713443118762, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
+      propertyPath: <RoundConfigurations>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540956713443118762, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
+      propertyPath: <RoundConfigurations>k__BackingField.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f6dd7eae32325474685103607078c64a, type: 2}
+    - target: {fileID: 8540956713443118762, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
+      propertyPath: <RoundConfigurations>k__BackingField.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: f6dd7eae32325474685103607078c64a, type: 2}
     - target: {fileID: 9188382879995531302, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
       propertyPath: m_Name
       value: Systems
