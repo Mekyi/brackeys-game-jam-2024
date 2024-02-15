@@ -126,7 +126,7 @@ public class DoorGenerator : MonoBehaviour
         }
 
         // TODO better randomization?
-        // TODO test with different numbers of doors
+        // TODO test with different numbers of doors -> did that, it worked
     }
 
     private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null)
