@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1073573244a56b04485a33408cef33d3, type: 3}
-  m_Name: Oval 5
+  m_Script: {fileID: 11500000, guid: 844638d5d4c297d4a8de884ce3a34cd5, type: 3}
+  m_Name: Cat Oval Hard
   m_EditorClassIdentifier: 
-  <RuleName>k__BackingField: Oval
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 3fcb82f9836bdb64382ac9f4fd5174e3, type: 3}
+  <RuleName>k__BackingField: Cat
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 47244ea021eef984996aa8024204f192, type: 3}
   <Shape>k__BackingField: 1
+  <Difficulty>k__BackingField: 2

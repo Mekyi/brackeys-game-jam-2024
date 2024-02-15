@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1578100271233745603}
   - component: {fileID: 8785807338392243235}
+  - component: {fileID: 3176043867236660202}
   m_Layer: 0
   m_Name: Grain
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3176043867236660202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535086701497718534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a6620ba66b00e4d8d62dc161667ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3263839106087171797
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694e59b9b41da65429df8856a3ddf550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _woodGrainGameObject: {fileID: 2535086701497718534}
 --- !u!65 &7262618629381300159
 BoxCollider:
   m_ObjectHideFlags: 0

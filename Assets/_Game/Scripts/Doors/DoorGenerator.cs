@@ -24,6 +24,9 @@ public class DoorGenerator : MonoBehaviour
     private List<DoorShape> _availableShapes = new List<DoorShape>();
 
     [SerializeField]
+    private List<WoodGrain> _availableWoodGrains = new List<WoodGrain>();
+
+    [SerializeField]
     private GameObject _doorBasePrefab;
 
     [SerializeField]
@@ -44,6 +47,7 @@ public class DoorGenerator : MonoBehaviour
         {
             _availableColors.Clear();
             _availableShapes.Clear();
+            _availableWoodGrains.Clear();
         }
     }
 
@@ -71,9 +75,9 @@ public class DoorGenerator : MonoBehaviour
                 currentRules.Shape = GetRandomTrait<DoorShape>() as DoorShape;
                 Debug.Log($"New rule: {currentRules.Shape.RuleName}");
                 break;
-            case RuleOption.Pattern:
-                break;
             case RuleOption.Grain:
+                currentRules.WoodGrain = GetRandomTrait<WoodGrain>(currentRules.Shape.Shape) as WoodGrain;
+                Debug.Log($"New rule: {currentRules.WoodGrain.RuleName}");
                 break;
             default:
                 break;
@@ -123,6 +127,7 @@ public class DoorGenerator : MonoBehaviour
         // Otherwise we randomize traits for doors
         doorTraitsModel.Color = correctDoorRules?.Color ?? GetRandomTrait<DoorColor>() as DoorColor;
         doorTraitsModel.Shape = correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape; 
+        doorTraitsModel.WoodGrain = correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain; 
 
         door.SetTraits(doorTraitsModel);
 
@@ -155,6 +160,10 @@ public class DoorGenerator : MonoBehaviour
             {
                 _availableShapes.Add(trait as DoorShape);
             }
+            else if (traitType == typeof(WoodGrain))
+            {
+                _availableWoodGrains.Add(trait as WoodGrain);
+            }
             else
             {
                 Debug.LogWarning($"There's not existing trait pool for type {trait.GetType()}");
@@ -162,7 +171,7 @@ public class DoorGenerator : MonoBehaviour
         }
     }
 
-    private DoorTraitBase GetRandomTrait<T>()
+    private DoorTraitBase GetRandomTrait<T>(DoorShapeOption doorShape = DoorShapeOption.Rectangle)
     {
         // TODO Refactor to be more generic
         var traitType = typeof(T);
@@ -177,6 +186,12 @@ public class DoorGenerator : MonoBehaviour
             else if (traitType == typeof(DoorShape))
             {
                 randomTrait = _availableShapes[Random.Range(0, _availableShapes.Count)];
+            }
+            else if (traitType == typeof(WoodGrain))
+            {
+                var shapeGrains = _availableWoodGrains.Where(grain => grain.Shape == doorShape).ToList();
+
+                randomTrait = shapeGrains[Random.Range(0, _availableWoodGrains.Count)];
             }
             else
             {

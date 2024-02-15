@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,16 @@ public class Door : MonoBehaviour
 {
     public DoorTraitsModel Traits { get; private set; } = new DoorTraitsModel();
 
+    [SerializeField]
+    private GameObject _woodGrainGameObject;
+
     private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer _woodGrainRenderer;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _woodGrainRenderer = _woodGrainGameObject.GetComponent<SpriteRenderer>();
     }
 
     public void SetTraits(DoorTraitsModel traits)
@@ -19,6 +25,17 @@ public class Door : MonoBehaviour
         
         SetSprite();
         SetColor();
+        SetWoodGrain();
+    }
+
+    private void SetWoodGrain()
+    {
+        if (Traits.WoodGrain == null)
+        {
+            return;
+        }
+
+        _woodGrainRenderer.sprite = Traits.WoodGrain.Sprite;
     }
 
     private void SetSprite()

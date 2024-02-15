@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1073573244a56b04485a33408cef33d3, type: 3}
   m_Name: Oval 3
   m_EditorClassIdentifier: 
-  <RuleName>k__BackingField: 
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 33fdd39a9cfe6df4484a771f954483b0, type: 3}
+  <RuleName>k__BackingField: Oval
+  <Sprite>k__BackingField: {fileID: 21300000, guid: d672be83fa51fe5458dae467a4867be1, type: 3}
   <Shape>k__BackingField: 1
