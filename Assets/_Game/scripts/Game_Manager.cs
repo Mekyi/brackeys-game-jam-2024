@@ -41,7 +41,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameState == GameState.SelectDoor)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -53,7 +53,8 @@ public class Game_Manager : MonoBehaviour
                 {
                     if (Right_Or_Wrong(results))
                     {
-                        //UpdateGameState(GameState.SelectDoor);
+                        CurrentRound += 1;
+                        UpdateGameState(GameState.StartRound);
                         print("right door");
                     } else
                     {
@@ -76,8 +77,9 @@ public class Game_Manager : MonoBehaviour
         {
             case GameState.StartRound:
                 HandleStartRound();
+                UpdateGameState(GameState.SelectDoor);
                 break;
-            case GameState.SelectDoor:
+            case GameState.SelectDoor: 
                 break;
             case GameState.Victory: // TODO set victory UI to show up when victory happens
                 break;

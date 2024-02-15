@@ -32,6 +32,8 @@ public class DoorGenerator : MonoBehaviour
     [SerializeField]
     private List<Transform> _doorSpots = new List<Transform>(5);
 
+    private List<GameObject> _currentDoors = new List<GameObject>();
+
     private void Awake()
     {
         if (Instance != null)
@@ -61,6 +63,16 @@ public class DoorGenerator : MonoBehaviour
 
     public DoorTraitsModel GenerateRound(RoundConfiguration roundConfiguration, DoorTraitsModel currentRules)
     {
+
+        if (_currentDoors.Any())
+        {
+            foreach (var door in _currentDoors)
+            {
+                Destroy(door);
+            }
+
+        }
+
         AddTraitsToPool(roundConfiguration.TraitPoolAdditions);
 
         switch (roundConfiguration.NewRule)
@@ -97,6 +109,7 @@ public class DoorGenerator : MonoBehaviour
             }
         }
 
+        _currentDoors = doors;
         PlaceDoors(doors);
 
         return currentRules;
