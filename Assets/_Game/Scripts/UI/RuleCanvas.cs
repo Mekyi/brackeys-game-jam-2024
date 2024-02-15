@@ -23,6 +23,7 @@ public class RuleCanvas : MonoBehaviour
         if (latestRule == null)
         {
             Game_Manager.Instance.UpdateGameState(GameState.SelectDoor);
+            return;
         }
 
         _ruleText.text = latestRule.GetRuleText();
