@@ -77,7 +77,7 @@ public class Game_Manager : MonoBehaviour
         {
             case GameState.StartRound:
                 HandleStartRound();
-                UpdateGameState(GameState.SelectDoor);
+                //UpdateGameState(GameState.SelectDoor);
                 break;
             case GameState.SelectDoor: 
                 break;
