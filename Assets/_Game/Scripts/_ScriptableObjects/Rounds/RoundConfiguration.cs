@@ -26,4 +26,7 @@ public class RoundConfiguration : ScriptableObject
     // TODO Show new rule time
 
     // TODO Door select time
+    [field: SerializeField]
+    public float TimeLeft;
+
 }
