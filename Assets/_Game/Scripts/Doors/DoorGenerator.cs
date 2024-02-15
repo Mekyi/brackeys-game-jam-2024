@@ -78,17 +78,21 @@ public class DoorGenerator : MonoBehaviour
         switch (roundConfiguration.NewRule)
         {
             case RuleOption.None:
+                RuleManager.Instance.SetLatestRule(null);
                 break;
             case RuleOption.Color:
                 currentRules.Color = GetRandomTrait<DoorColor>() as DoorColor;
+                RuleManager.Instance.SetLatestRule(currentRules.Color);
                 Debug.Log($"New rule: {currentRules.Color.RuleName}");
                 break;
             case RuleOption.Shape:
                 currentRules.Shape = GetRandomTrait<DoorShape>() as DoorShape;
+                RuleManager.Instance.SetLatestRule(currentRules.Shape);
                 Debug.Log($"New rule: {currentRules.Shape.RuleName}");
                 break;
             case RuleOption.Grain:
                 currentRules.WoodGrain = GetRandomTrait<WoodGrain>(currentRules.Shape.Shape) as WoodGrain;
+                RuleManager.Instance.SetLatestRule(currentRules.WoodGrain);
                 Debug.Log($"New rule: {currentRules.WoodGrain.RuleName}");
                 break;
             default:

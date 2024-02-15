@@ -15,4 +15,16 @@ public class RuleCanvas : MonoBehaviour
             Game_Manager.Instance.UpdateGameState(GameState.SelectDoor);
         }
     }
+
+    private void OnEnable()
+    {
+        var latestRule = RuleManager.Instance.LatestRule;
+
+        if (latestRule == null)
+        {
+            Game_Manager.Instance.UpdateGameState(GameState.SelectDoor);
+        }
+
+        _ruleText.text = latestRule.GetRuleText();
+    }
 }

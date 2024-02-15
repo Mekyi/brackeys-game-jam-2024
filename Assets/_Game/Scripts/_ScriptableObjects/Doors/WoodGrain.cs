@@ -13,4 +13,6 @@ public class WoodGrain : DoorTraitBase
 
     [field: SerializeField]
     public Difficulty Difficulty { get; private set; }
+
+    public override string GetRuleText() => $"Door wood grain has a {RuleName.ToUpper()} hidden in it";
 }

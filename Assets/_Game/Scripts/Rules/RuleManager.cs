@@ -12,6 +12,8 @@ public class RuleManager : MonoBehaviour
 
     public DoorTraitsModel ActiveRules { get; private set; } = new DoorTraitsModel();
 
+    public DoorTraitBase LatestRule { get; private set; }
+
     private void Awake()
     {
         if (Instance != null)
@@ -31,5 +33,10 @@ public class RuleManager : MonoBehaviour
         var updatedRules  = DoorGenerator.Instance.GenerateRound(roundConfiguration, ActiveRules);
 
         ActiveRules = updatedRules;
+    }
+
+    public void SetLatestRule(DoorTraitBase latestRule)
+    {
+        LatestRule = latestRule;
     }
 }
