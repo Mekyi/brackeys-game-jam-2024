@@ -8,6 +8,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _ruleCanvas;
 
+    [SerializeField]
+    private GameObject _victoryScreen;
+
+    [SerializeField]
+    private GameObject _loseScreen;
+
     private void Awake()
     {
         Game_Manager.OnGameStateChanged += OnGameStateChanged;
@@ -21,5 +27,7 @@ public class UIManager : MonoBehaviour
     private void OnGameStateChanged(GameState state)
     {
         _ruleCanvas.SetActive(state == GameState.StartRound);
+        _victoryScreen.SetActive(state == GameState.Victory);
+        _loseScreen.SetActive(state == GameState.Lose);
     }
 }

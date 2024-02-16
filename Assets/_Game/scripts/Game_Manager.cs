@@ -24,7 +24,7 @@ public class Game_Manager : MonoBehaviour
 
     public int CurrentRound { get; private set; } = 0;
 
-    private float remainingTime = RuleManager.Instance.RoundConfigurations[0].TimeLeft;
+    private float remainingTime = 0;
 
     private void Awake()
     {
@@ -67,11 +67,12 @@ public class Game_Manager : MonoBehaviour
             } else
             {
               Time_Left.text = string.Format("00:000");
-              // UpdateGameState(GameState.Lose);
+              UpdateGameState(GameState.Lose);
             }
         } else
         {
             Time_Left.text = string.Format(""); // removes countdown when there are no more rounds left
+            UpdateGameState(GameState.Victory);
         }
         
 
@@ -89,11 +90,11 @@ public class Game_Manager : MonoBehaviour
                     {
                         CurrentRound += 1;
                         UpdateGameState(GameState.StartRound);
-                        print("right door");
+                        // print("right door");
                     } else
                     {
-                        //UpdateGameState(GameState.Lose);
-                        print("wrong door");
+                        UpdateGameState(GameState.Lose);
+                        // print("wrong door");
                     }
 
                 }
@@ -110,15 +111,22 @@ public class Game_Manager : MonoBehaviour
         switch (GameState)
         {
             case GameState.StartRound:
-                remainingTime = RuleManager.Instance.RoundConfigurations[CurrentRound].TimeLeft;
                 HandleStartRound();
-                //UpdateGameState(GameState.SelectDoor);
+                UpdateGameState(GameState.SelectDoor);
                 break;
             case GameState.SelectDoor:
+                if (RuleManager.Instance.RoundConfigurations.Count > CurrentRound) {
+                    remainingTime = RuleManager.Instance.RoundConfigurations[CurrentRound].TimeLeft;
+                } else
+                {
+                    UpdateGameState(GameState.Victory);
+                }
                 break;
-            case GameState.Victory: // TODO set victory UI to show up when victory happens
+            case GameState.Victory:
+                remainingTime = 0;
                 break;
-            case GameState.Lose: // TODO set lose screen to show up when loss happens
+            case GameState.Lose:
+                remainingTime = 0;
                 break;
         }
 
