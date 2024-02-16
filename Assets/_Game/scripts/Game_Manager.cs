@@ -90,11 +90,9 @@ public class Game_Manager : MonoBehaviour
                     {
                         CurrentRound += 1;
                         UpdateGameState(GameState.StartRound);
-                        // print("right door");
                     } else
                     {
                         UpdateGameState(GameState.Lose);
-                        // print("wrong door");
                     }
 
                 }
@@ -102,6 +100,7 @@ public class Game_Manager : MonoBehaviour
 
             }
         }
+
     }
 
     public void UpdateGameState(GameState newState)
@@ -152,9 +151,6 @@ public class Game_Manager : MonoBehaviour
 
     public void Reset_Game()
     {
-        lose_Screen.SetActive(false);
-        victory_Screen.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        print("reset");
     }
 }
