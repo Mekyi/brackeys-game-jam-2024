@@ -24,7 +24,7 @@ public class Game_Manager : MonoBehaviour
 
     public int CurrentRound { get; private set; } = 0;
 
-    private int TimeLeft { get; } = 0;
+    private float remainingTime = RuleManager.Instance.RoundConfigurations[0].TimeLeft;
 
     private void Awake()
     {
@@ -48,14 +48,13 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
 
-        // timer (current issue: Time does not reset at the beginning of a round)
         if (RuleManager.Instance.RoundConfigurations.Count > CurrentRound) { 
 
-            float remainingTime = RuleManager.Instance.RoundConfigurations[CurrentRound].TimeLeft - Time.timeSinceLevelLoad;
+            remainingTime = remainingTime - Time.deltaTime;
 
             if (remainingTime > 0) {
                 int seconds = Mathf.FloorToInt(remainingTime % 60);
-                int milliSeconds = Mathf.FloorToInt(remainingTime * 1000) % 1000; // Idk if this is right btw, I just copied it online
+                float milliSeconds = (remainingTime % 1) * 1000;
 
                 if (milliSeconds < 100)
                 {
@@ -111,6 +110,7 @@ public class Game_Manager : MonoBehaviour
         switch (GameState)
         {
             case GameState.StartRound:
+                remainingTime = RuleManager.Instance.RoundConfigurations[CurrentRound].TimeLeft;
                 HandleStartRound();
                 //UpdateGameState(GameState.SelectDoor);
                 break;
