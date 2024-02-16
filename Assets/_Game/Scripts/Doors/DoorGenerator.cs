@@ -208,7 +208,7 @@ public class DoorGenerator : MonoBehaviour
             {
                 var shapeGrains = _availableWoodGrains.Where(grain => grain.Shape == doorShape).ToList();
 
-                randomTrait = shapeGrains[Random.Range(0, _availableWoodGrains.Count)];
+                randomTrait = shapeGrains[Random.Range(0, shapeGrains.Count)];
             }
             else
             {
