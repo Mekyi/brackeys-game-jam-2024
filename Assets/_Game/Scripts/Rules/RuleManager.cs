@@ -33,6 +33,8 @@ public class RuleManager : MonoBehaviour
         var updatedRules  = DoorGenerator.Instance.GenerateRound(roundConfiguration, ActiveRules);
 
         ActiveRules = updatedRules;
+
+        Game_Manager.Instance.SetRoundTime(roundConfiguration.TimeLeft);
     }
 
     public void SetLatestRule(DoorTraitBase latestRule)

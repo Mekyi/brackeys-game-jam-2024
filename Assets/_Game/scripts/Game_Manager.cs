@@ -47,60 +47,11 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (RuleManager.Instance.RoundConfigurations.Count > CurrentRound) { 
-
-            remainingTime = remainingTime - Time.deltaTime;
-
-            if (remainingTime > 0) {
-                int seconds = Mathf.FloorToInt(remainingTime % 60);
-                float milliSeconds = (remainingTime % 1) * 1000;
-
-                if (milliSeconds < 100)
-                {
-                    Time_Left.text = string.Format("{0:00}:0{1:0}", seconds, milliSeconds);
-                } else
-                {
-                    Time_Left.text = string.Format("{0:00}:{1:0}", seconds, milliSeconds);
-                }
-
-            } else
-            {
-              Time_Left.text = string.Format("00:000");
-              UpdateGameState(GameState.Lose);
-            }
-        } else
+        if (GameState == GameState.SelectDoor)
         {
-            Time_Left.text = string.Format(""); // removes countdown when there are no more rounds left
-            UpdateGameState(GameState.Victory);
+            CheckTimerStatus();
+            CheckDoorSelect();
         }
-        
-
-        if (Input.GetMouseButtonDown(0) && GameState == GameState.SelectDoor)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo)) // When a door is clicked, the game tells you whether it's the correct door or not
-            {
-                DoorTraitsModel results = hitInfo.transform.GetComponent<Door>().Traits;
-
-                if (results != null)
-                {
-                    if (Right_Or_Wrong(results))
-                    {
-                        CurrentRound += 1;
-                        UpdateGameState(GameState.StartRound);
-                    } else
-                    {
-                        UpdateGameState(GameState.Lose);
-                    }
-
-                }
-
-
-            }
-        }
-
     }
 
     public void UpdateGameState(GameState newState)
@@ -111,15 +62,8 @@ public class Game_Manager : MonoBehaviour
         {
             case GameState.StartRound:
                 HandleStartRound();
-                UpdateGameState(GameState.SelectDoor);
                 break;
             case GameState.SelectDoor:
-                if (RuleManager.Instance.RoundConfigurations.Count > CurrentRound) {
-                    remainingTime = RuleManager.Instance.RoundConfigurations[CurrentRound].TimeLeft;
-                } else
-                {
-                    UpdateGameState(GameState.Victory);
-                }
                 break;
             case GameState.Victory:
                 remainingTime = 0;
@@ -130,6 +74,11 @@ public class Game_Manager : MonoBehaviour
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    public void SetRoundTime(float roundTime)
+    {
+        remainingTime = roundTime;
     }
 
     private void HandleStartRound()
@@ -152,5 +101,67 @@ public class Game_Manager : MonoBehaviour
     public void Reset_Game()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void CheckTimerStatus()
+    {
+        if (RuleManager.Instance.RoundConfigurations.Count > CurrentRound && GameState == GameState.SelectDoor)
+        {
+            remainingTime = remainingTime - Time.deltaTime;
+
+            if (remainingTime > 0)
+            {
+                int seconds = Mathf.FloorToInt(remainingTime % 60);
+                float milliSeconds = (remainingTime % 1) * 1000;
+
+                if (milliSeconds < 100)
+                {
+                    Time_Left.text = string.Format("{0:00}:0{1:0}", seconds, milliSeconds);
+                }
+                else
+                {
+                    Time_Left.text = string.Format("{0:00}:{1:0}", seconds, milliSeconds);
+                }
+            }
+            else
+            {
+                Time_Left.text = string.Format("00:000");
+                UpdateGameState(GameState.Lose);
+            }
+        }
+    }
+    
+
+    private void CheckDoorSelect()
+    {
+        if (Input.GetMouseButtonDown(0) && GameState == GameState.SelectDoor)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo)) // When a door is clicked, the game tells you whether it's the correct door or not
+            {
+                DoorTraitsModel results = hitInfo.transform.GetComponent<Door>().Traits;
+
+                if (results != null)
+                {
+                    if (Right_Or_Wrong(results))
+                    {
+                        CurrentRound += 1;
+
+                        if (RuleManager.Instance.RoundConfigurations.Count < CurrentRound + 1)
+                        {
+                            UpdateGameState(GameState.Victory);
+                            return;
+                        }
+
+                        UpdateGameState(GameState.StartRound);
+                    }
+                    else
+                    {
+                        UpdateGameState(GameState.Lose);
+                    }
+                }
+            }
+        }
     }
 }
