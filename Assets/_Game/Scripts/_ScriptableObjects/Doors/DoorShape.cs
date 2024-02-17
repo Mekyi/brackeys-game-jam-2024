@@ -11,6 +11,6 @@ public class DoorShape : DoorTraitBase
     [field: SerializeField]
     public DoorShapeOption Shape { get; private set; }
 
-    public override string GetRuleText() => $"Door must be {RuleName.ToUpper()} shape";
+    public override string GetRuleText() => $"From here on out, I remember the correct doors all being {RuleName.ToUpper()} shape too!";
 }
 
