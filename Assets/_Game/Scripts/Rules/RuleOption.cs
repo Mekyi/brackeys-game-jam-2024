@@ -4,5 +4,6 @@ public enum RuleOption
     Color,
     Shape,
     Grain,
-    Sticker
+    Sticker,
+    Handle
 }

@@ -28,6 +28,9 @@ public class DoorGenerator : MonoBehaviour
     [SerializeField]
     private List<WoodGrain> _availableWoodGrains = new List<WoodGrain>();
 
+    [SerializeField]
+    private List<DoorHandle> _availableDoorHandles = new List<DoorHandle>();
+
     private DoorStickers _stickerSettings = null;
 
     [SerializeField]
@@ -54,6 +57,7 @@ public class DoorGenerator : MonoBehaviour
             _availableColors.Clear();
             _availableShapes.Clear();
             _availableWoodGrains.Clear();
+            _availableDoorHandles.Clear();
         }
     }
 
@@ -99,6 +103,10 @@ public class DoorGenerator : MonoBehaviour
                 currentRules.StickerSettings = RandomizeSticker(_stickerSettings);
                 RuleManager.Instance.SetLatestRule(currentRules.StickerSettings);
                 break;
+            case RuleOption.Handle:
+                currentRules.DoorHandle = GetRandomTrait<DoorHandle>() as DoorHandle;
+                RuleManager.Instance.SetLatestRule(currentRules.DoorHandle);
+                break;
             default:
                 break;
         }
@@ -133,7 +141,7 @@ public class DoorGenerator : MonoBehaviour
             randomizedDoors[i].transform.position = _doorSpots[i].transform.position;
         }
 
-        // TODO better randomization?
+        // TODO better randomization? <- No =)
     }
 
     private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null, DoorStickers stickerSettings = null)
@@ -152,6 +160,7 @@ public class DoorGenerator : MonoBehaviour
             doorTraitsModel.WoodGrain = correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
         }
         doorTraitsModel.StickerSettings = correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
+        doorTraitsModel.DoorHandle = correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
 
         door.SetTraits(doorTraitsModel);
 
@@ -192,6 +201,10 @@ public class DoorGenerator : MonoBehaviour
             {
                 _stickerSettings = trait as DoorStickers;
             }
+            else if (traitType == typeof(DoorHandle))
+            {
+                _availableDoorHandles.Add(trait as DoorHandle);
+            }
             else
             {
                 Debug.LogWarning($"There's not existing trait pool for type {trait.GetType()}");
@@ -225,6 +238,10 @@ public class DoorGenerator : MonoBehaviour
             {
                 var randomizedStickerSetting = Instantiate(_stickerSettings);
                 randomTrait = RandomizeSticker(randomizedStickerSetting);
+            }
+            else if (traitType == typeof(DoorHandle))
+            {
+                randomTrait = _availableDoorHandles[Random.Range(0, _availableDoorHandles.Count)];
             }
             else
             {

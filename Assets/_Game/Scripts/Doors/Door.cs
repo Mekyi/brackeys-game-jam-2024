@@ -13,6 +13,12 @@ public class Door : MonoBehaviour
     private GameObject _woodGrainGameObject;
 
     [SerializeField]
+    private GameObject _doorLeftHandleGameObject;
+
+    [SerializeField]
+    private GameObject _doorRightHandleGameObject;
+
+    [SerializeField]
     private List<Sprite> _doorStickers = new List<Sprite>();
 
     [SerializeField]
@@ -20,11 +26,15 @@ public class Door : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _woodGrainRenderer;
+    private SpriteRenderer _doorLeftHandleRenderer;
+    private SpriteRenderer _doorRightHandleRenderer;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _woodGrainRenderer = _woodGrainGameObject.GetComponent<SpriteRenderer>();
+        _doorLeftHandleRenderer = _doorLeftHandleGameObject.GetComponent<SpriteRenderer>();
+        _doorRightHandleRenderer = _doorRightHandleGameObject.GetComponent<SpriteRenderer>();
     }
 
     public void SetTraits(DoorTraitsModel traits)
@@ -35,6 +45,28 @@ public class Door : MonoBehaviour
         SetColor();
         SetWoodGrain();
         SetStickers();
+        SetHandle();
+    }
+
+    private void SetHandle()
+    {
+        if (Traits.DoorHandle == null)
+        {
+            return;
+        }
+
+        var isHandleLeft = Random.value > 0.5f;
+
+        if (isHandleLeft)
+        {
+            _doorRightHandleGameObject.SetActive(false);
+            _doorLeftHandleRenderer.sprite = Traits.DoorHandle.SpriteLeft;
+        }
+        else
+        {
+            _doorLeftHandleGameObject.SetActive(false);
+            _doorRightHandleRenderer.sprite = Traits.DoorHandle.SpriteRight;
+        }
     }
 
     private void SetWoodGrain()
