@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Door : MonoBehaviour
 {
@@ -9,6 +11,12 @@ public class Door : MonoBehaviour
 
     [SerializeField]
     private GameObject _woodGrainGameObject;
+
+    [SerializeField]
+    private List<Sprite> _doorStickers = new List<Sprite>();
+
+    [SerializeField]
+    private List<SpriteRenderer> _stickerPositions = new List<SpriteRenderer>();
 
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _woodGrainRenderer;
@@ -26,6 +34,7 @@ public class Door : MonoBehaviour
         SetSprite();
         SetColor();
         SetWoodGrain();
+        SetStickers();
     }
 
     private void SetWoodGrain()
@@ -56,5 +65,36 @@ public class Door : MonoBehaviour
         }
 
         _spriteRenderer.color = Traits.Color.Color;
+    }
+
+    private void SetStickers()
+    {
+        var stickerSettigns = Traits.StickerSettings;
+
+        if (stickerSettigns == null)
+        {
+            return;
+        }
+
+        if (stickerSettigns.StickerAmount == 0)
+        {
+            return;
+        }
+
+        List<Sprite> stickersToUse = new List<Sprite>();
+
+        // Randomize used stickers
+        for (int i = 0; i < stickerSettigns.StickerAmount; i++)
+        {
+            stickersToUse.Add(_doorStickers[Random.Range(0, _doorStickers.Count)]);
+        }
+
+        // Place stickers
+        for (int i = 0; i < stickersToUse.Count; i++)
+        {
+            _stickerPositions[i].sprite = stickersToUse[i];
+        }
+
+        Debug.Log(Traits.StickerSettings.StickerAmount);
     }
 }

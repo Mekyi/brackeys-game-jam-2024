@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -25,6 +27,8 @@ public class DoorGenerator : MonoBehaviour
 
     [SerializeField]
     private List<WoodGrain> _availableWoodGrains = new List<WoodGrain>();
+
+    private DoorStickers _stickerSettings = null;
 
     [SerializeField]
     private GameObject _doorBasePrefab;
@@ -70,7 +74,6 @@ public class DoorGenerator : MonoBehaviour
             {
                 Destroy(door);
             }
-
         }
 
         AddTraitsToPool(roundConfiguration.TraitPoolAdditions);
@@ -91,6 +94,10 @@ public class DoorGenerator : MonoBehaviour
             case RuleOption.Grain:
                 currentRules.WoodGrain = GetRandomTrait<WoodGrain>(currentRules.Shape.Shape) as WoodGrain;
                 RuleManager.Instance.SetLatestRule(currentRules.WoodGrain);
+                break;
+            case RuleOption.Sticker:
+                currentRules.StickerSettings = RandomizeSticker(_stickerSettings);
+                RuleManager.Instance.SetLatestRule(currentRules.StickerSettings);
                 break;
             default:
                 break;
@@ -127,10 +134,9 @@ public class DoorGenerator : MonoBehaviour
         }
 
         // TODO better randomization?
-        // TODO test with different numbers of doors -> did that, it worked
     }
 
-    private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null)
+    private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null, DoorStickers stickerSettings = null)
     {
         var newDoorObject = Instantiate(_doorBasePrefab);
         var door = newDoorObject.GetComponent<Door>();
@@ -140,8 +146,12 @@ public class DoorGenerator : MonoBehaviour
         // If correct door rules are set, we are generating traits for the correct door
         // Otherwise we randomize traits for doors
         doorTraitsModel.Color = correctDoorRules?.Color ?? GetRandomTrait<DoorColor>() as DoorColor;
-        doorTraitsModel.Shape = correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape; 
-        doorTraitsModel.WoodGrain = correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain; 
+        doorTraitsModel.Shape = correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape;
+        if (doorTraitsModel.Shape != null)
+        {
+            doorTraitsModel.WoodGrain = correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
+        }
+        doorTraitsModel.StickerSettings = correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
 
         door.SetTraits(doorTraitsModel);
 
@@ -178,6 +188,10 @@ public class DoorGenerator : MonoBehaviour
             {
                 _availableWoodGrains.Add(trait as WoodGrain);
             }
+            else if (traitType == typeof(DoorStickers))
+            {
+                _stickerSettings = trait as DoorStickers;
+            }
             else
             {
                 Debug.LogWarning($"There's not existing trait pool for type {trait.GetType()}");
@@ -207,6 +221,11 @@ public class DoorGenerator : MonoBehaviour
 
                 randomTrait = shapeGrains[Random.Range(0, shapeGrains.Count)];
             }
+            else if (traitType == typeof(DoorStickers))
+            {
+                var randomizedStickerSetting = Instantiate(_stickerSettings);
+                randomTrait = RandomizeSticker(randomizedStickerSetting);
+            }
             else
             {
                 Debug.LogWarning($"There's not existing trait pool for type {traitType}");
@@ -221,5 +240,11 @@ public class DoorGenerator : MonoBehaviour
         return randomTrait;
     }
 
+    private DoorStickers RandomizeSticker(DoorStickers doorStickersSettings)
+    {
+        doorStickersSettings.SetAmount(Random.Range(doorStickersSettings.MinStickerAmount, doorStickersSettings.MaxStickerAmount));
+
+        return doorStickersSettings;
+    }
 }
 
