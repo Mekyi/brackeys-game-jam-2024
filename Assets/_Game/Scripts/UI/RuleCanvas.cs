@@ -8,6 +8,15 @@ public class RuleCanvas : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _ruleText;
 
+    [SerializeField]
+    private GameObject _colorImage;
+
+    [SerializeField]
+    private GameObject _shapeImage;
+
+    [SerializeField]
+    private GameObject _grainImage;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
