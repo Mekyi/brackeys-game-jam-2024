@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25da86e0f31b1534c9a9c726e6aeffb6, type: 2}
   - {fileID: 11400000, guid: 2fd9bc32673ffd848aa1c2c267b7b733, type: 2}
   - {fileID: 11400000, guid: 43bc5b6b02a3d5e4888f86d289b90609, type: 2}
-  - {fileID: 11400000, guid: 1b3a07a0cfd1ca54c8944af3823dc2fc, type: 2}
   - {fileID: 11400000, guid: 1602b606b8752ba478472f98ad146679, type: 2}
   - {fileID: 11400000, guid: 5b211cba0b139b947807db4e1c586fba, type: 2}
+  - {fileID: 11400000, guid: 1b3a07a0cfd1ca54c8944af3823dc2fc, type: 2}
   <DoorsToGenerate>k__BackingField: 3
   TimeLeft: 30
