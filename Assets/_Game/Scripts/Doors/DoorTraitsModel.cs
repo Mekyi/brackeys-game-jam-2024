@@ -15,7 +15,7 @@ public class DoorTraitsModel
 
         if (rules.Shape?.Shape != null && Shape?.Shape != rules.Shape?.Shape) return false;
         if (Color?.Color != rules.Color?.Color && rules.Color?.Color != null) return false;
-        if (rules.WoodGrain != null && WoodGrain?.Sprite != rules.WoodGrain?.Sprite) return false;
+        if (rules.WoodGrain != null && WoodGrain?.RuleName != rules.WoodGrain?.RuleName) return false;
 
         return true;
     }
