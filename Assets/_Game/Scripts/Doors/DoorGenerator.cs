@@ -221,7 +221,7 @@ public class DoorGenerator : MonoBehaviour
 
                 randomTrait = shapeGrains[Random.Range(0, shapeGrains.Count)];
             }
-            else if (traitType == typeof(DoorStickers))
+            else if (traitType == typeof(DoorStickers) && _stickerSettings != null)
             {
                 var randomizedStickerSetting = Instantiate(_stickerSettings);
                 randomTrait = RandomizeSticker(randomizedStickerSetting);
