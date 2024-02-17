@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Game/Scenes/DoorGeneratorTest.unity
-    guid: 3978f3d825d258549b6bc8e2cb312ab9
-  - enabled: 1
-    path: Assets/_Game/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Game/Scenes/Scene_1.unity
+    guid: f63086d616de0dd488ffc5fcf28e4c40
   m_configObjects: {}
