@@ -15,5 +15,5 @@ MonoBehaviour:
   <NewRule>k__BackingField: 4
   <TraitPoolAdditions>k__BackingField:
   - {fileID: 11400000, guid: bfa9f998288b1604683ac58b0d2d5d35, type: 2}
-  <DoorsToGenerate>k__BackingField: 3
-  TimeLeft: 10
+  <DoorsToGenerate>k__BackingField: 5
+  TimeLeft: 30
