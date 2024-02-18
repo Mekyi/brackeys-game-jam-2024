@@ -164,7 +164,15 @@ public class DoorGenerator : MonoBehaviour
         doorTraitsModel.Shape = isCorrectDoor == false && randomizeRule == RuleOption.Shape ? GetRandomTrait<DoorShape>() as DoorShape : correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape;
         if (doorTraitsModel.Shape != null)
         {
-            doorTraitsModel.WoodGrain = isCorrectDoor == false && randomizeRule == RuleOption.Grain ? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain : correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
+            var isGrainRandomized = randomizeRule == RuleOption.Grain;
+            doorTraitsModel.WoodGrain = isCorrectDoor == false && isGrainRandomized ? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain : correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
+            var grainVariations = _availableWoodGrains.Where(grain => grain.RuleName == doorTraitsModel.WoodGrain?.RuleName && doorTraitsModel.Shape.Shape == grain.Shape).ToList();
+
+            if (grainVariations.Any())
+            {
+                doorTraitsModel.WoodGrain = grainVariations[Random.Range(0, grainVariations.Count)];
+            }
+
         }
         doorTraitsModel.StickerSettings = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorStickers>() as DoorStickers : correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
         doorTraitsModel.DoorHandle = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorHandle>() as DoorHandle : correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
