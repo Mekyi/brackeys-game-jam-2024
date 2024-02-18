@@ -185,7 +185,5 @@ public class Door : MonoBehaviour
         {
             _stickerPositions[i].sprite = stickersToUse[i];
         }
-
-        Debug.Log(Traits.StickerSettings.StickerAmount);
     }
 }
