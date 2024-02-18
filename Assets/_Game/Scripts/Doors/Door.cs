@@ -37,6 +37,7 @@ public class Door : MonoBehaviour
     private SpriteRenderer _frameRenderer;
 
     private bool _isDoorOpened = false;
+    private bool _isFrameDetached = false;
 
     private void Awake()
     {
@@ -45,41 +46,63 @@ public class Door : MonoBehaviour
         _doorLeftHandleRenderer = _doorLeftHandleGameObject.GetComponent<SpriteRenderer>();
         _doorRightHandleRenderer = _doorRightHandleGameObject.GetComponent<SpriteRenderer>();
         _frameRenderer = _doorFrame.GetComponent<SpriteRenderer>();
+        Game_Manager.OnGameStateChanged += OnGameStateChanged;
+        //transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 
     private void OnMouseOver()
     {
-        _doorFrame.transform.parent = null;
-        OpenDoor(true);
+        _isDoorOpened = true;
     }
 
     private void OnMouseExit()
     {
-        OpenDoor(false);
+        _isDoorOpened = false;
+    }
+
+    private void Update()
+    {
+        transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        Debug.Log(_isDoorOpened);
+
+        if (_isDoorOpened == false)
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 6f, 0f);
+        }
     }
 
     private void OnDestroy()
     {
+        Game_Manager.OnGameStateChanged -= OnGameStateChanged;
         Destroy(_doorFrame);
+    }
+
+    private void OnGameStateChanged(GameState state)
+    {
+        if (state == GameState.SelectDoor)
+        {
+            _doorFrame.transform.SetParent(Game_Manager.Instance.transform, true);
+            _isFrameDetached = true;
+            _doorFrame.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
 
     private void OpenDoor(bool shouldDoorBeOpen)
     {
-        //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        //transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-        if (_isDoorOpened && shouldDoorBeOpen)
+        if (shouldDoorBeOpen && _isDoorOpened == false)
         {
-            return;
-        }
-        else if (_isDoorOpened == false && shouldDoorBeOpen)
-        {
-            _isDoorOpened = true;
             transform.parent.rotation = Quaternion.Euler(0f, 6f, 0f);
+            _isDoorOpened = true;
         }
-        else if (shouldDoorBeOpen == false)
+        else if (shouldDoorBeOpen == false && _isDoorOpened)
         {
-            _isDoorOpened = false;
             transform.parent.rotation = Quaternion.identity;
         }
     }
