@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Green
   m_EditorClassIdentifier: 
   <RuleName>k__BackingField: Green
-  <Color>k__BackingField: {r: 0.7490196, g: 0.91764706, b: 0.4862745, a: 1}
+  <Color>k__BackingField: {r: 0.24313726, g: 0.41960785, b: 0.3647059, a: 1}
