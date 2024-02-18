@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{cfa14493-ff3f-46f6-94de-fa90a513f6bb}">
+		<property name="assetPath">
+			<value>door_open.m4a</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4b239aae-35b4-4a24-962a-6ffcbfd9fa5e}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -15,6 +15,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField]
     public EventReference DoorOpen { get; private set; }
 
+    [field: SerializeField]
+    public EventReference ButtonClick { get; private set; }
+
     public static FMODEvents Instance { get; private set; }
 
     private void Awake()
