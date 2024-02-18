@@ -327,6 +327,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 162169218}
     - target: {fileID: 8540956713443118762, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
+      propertyPath: <Wall>k__BackingField
+      value: 
+      objectReference: {fileID: 1027280989}
+    - target: {fileID: 8540956713443118762, guid: 3c4754648a948be4abdeec0a1f9fbdee, type: 3}
       propertyPath: <RoundConfigurations>k__BackingField.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -711,7 +715,7 @@ GameObject:
   - component: {fileID: 1027280991}
   - component: {fileID: 1027280990}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall_normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1907,6 +1911,26 @@ PrefabInstance:
     - target: {fileID: 1785124934405360133, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
       propertyPath: m_Name
       value: RuleCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785124934405360133, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986902738702756956, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266159300114577135, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266159300114577135, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ac49328bfa101544eaeff26e96582abe, type: 3}
+    - target: {fileID: 5266159300114577135, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9118639829791574021, guid: 2530299688d1d34448c9b611ccb9adb8, type: 3}
       propertyPath: m_Pivot.x
