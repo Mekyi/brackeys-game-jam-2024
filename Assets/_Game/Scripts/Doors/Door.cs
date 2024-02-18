@@ -10,6 +10,12 @@ public class Door : MonoBehaviour
     public DoorTraitsModel Traits { get; private set; } = new DoorTraitsModel();
 
     [SerializeField]
+    private GameObject _doorFrame;
+
+    [SerializeField] 
+    private Sprite _ovalFrame;
+    
+    [SerializeField]
     private GameObject _woodGrainGameObject;
 
     [SerializeField]
@@ -28,6 +34,7 @@ public class Door : MonoBehaviour
     private SpriteRenderer _woodGrainRenderer;
     private SpriteRenderer _doorLeftHandleRenderer;
     private SpriteRenderer _doorRightHandleRenderer;
+    private SpriteRenderer _frameRenderer;
 
     private bool _isDoorOpened = false;
 
@@ -37,16 +44,23 @@ public class Door : MonoBehaviour
         _woodGrainRenderer = _woodGrainGameObject.GetComponent<SpriteRenderer>();
         _doorLeftHandleRenderer = _doorLeftHandleGameObject.GetComponent<SpriteRenderer>();
         _doorRightHandleRenderer = _doorRightHandleGameObject.GetComponent<SpriteRenderer>();
+        _frameRenderer = _doorFrame.GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseOver()
     {
+        _doorFrame.transform.parent = null;
         OpenDoor(true);
     }
 
     private void OnMouseExit()
     {
         OpenDoor(false);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(_doorFrame);
     }
 
     private void OpenDoor(bool shouldDoorBeOpen)
@@ -122,6 +136,11 @@ public class Door : MonoBehaviour
         }
 
         _spriteRenderer.sprite = Traits.Shape.Sprite;
+
+        if (Traits.Shape.Shape == DoorShapeOption.Oval)
+        {
+            _frameRenderer.sprite = _ovalFrame;
+        }
     }
 
     private void SetColor()
