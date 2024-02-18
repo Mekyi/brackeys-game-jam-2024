@@ -155,8 +155,30 @@ public class DoorGenerator : MonoBehaviour
 
         if (isCorrectDoor == false)
         {
-            Array values = Enum.GetValues(typeof(RuleOption));
-            randomizeRule = (RuleOption)values.GetValue(Random.Range(1, values.Length));
+            List<RuleOption> usedRules = new List<RuleOption>();
+
+            if (correctDoorRules?.Shape != null)
+            {
+                usedRules.Add(RuleOption.Shape);
+            }
+            if (correctDoorRules?.Color)
+            {
+                usedRules.Add(RuleOption.Color);
+            }
+            if (correctDoorRules?.WoodGrain != null)
+            {
+                usedRules.Add(RuleOption.Grain);
+            }
+            if (correctDoorRules?.StickerSettings != null)
+            {
+                usedRules.Add(RuleOption.Sticker);
+            }
+            if (correctDoorRules?.DoorHandle != null)
+            {
+                usedRules.Add(RuleOption.Handle);
+            }
+
+            randomizeRule = usedRules[Random.Range(0, usedRules.Count)];
         }
 
         // If correct door rules are set, we are generating traits for the correct door
