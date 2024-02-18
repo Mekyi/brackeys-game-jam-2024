@@ -60,11 +60,13 @@ public class Door : MonoBehaviour
         if (isHandleLeft)
         {
             _doorRightHandleGameObject.SetActive(false);
+            _doorLeftHandleGameObject.SetActive(true);
             _doorLeftHandleRenderer.sprite = Traits.DoorHandle.SpriteLeft;
         }
         else
         {
             _doorLeftHandleGameObject.SetActive(false);
+            _doorRightHandleGameObject.SetActive(true);
             _doorRightHandleRenderer.sprite = Traits.DoorHandle.SpriteRight;
         }
     }

@@ -113,7 +113,7 @@ public class DoorGenerator : MonoBehaviour
 
         var doors = new List<GameObject>();
 
-        var correctDoor = GenerateDoor(currentRules);
+        var correctDoor = GenerateDoor(currentRules, isCorrectDoor: true);
         doors.Add(correctDoor);
 
         if (roundConfiguration.DoorsToGenerate > 1)
@@ -121,7 +121,7 @@ public class DoorGenerator : MonoBehaviour
             // We already have the correct door so we start from +1 index 
             for (int i = 1; i < roundConfiguration.DoorsToGenerate; i++)
             {
-                doors.Add(GenerateDoor());
+                doors.Add(GenerateDoor(currentRules));
             }
         }
 
@@ -144,23 +144,30 @@ public class DoorGenerator : MonoBehaviour
         // TODO better randomization? <- No =)
     }
 
-    private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null, DoorStickers stickerSettings = null)
+    private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null, bool isCorrectDoor = false)
     {
         var newDoorObject = Instantiate(_doorBasePrefab);
         var door = newDoorObject.GetComponent<Door>();
 
         DoorTraitsModel doorTraitsModel = new DoorTraitsModel();
+        RuleOption randomizeRule = RuleOption.None;
+
+        if (isCorrectDoor == false)
+        {
+            Array values = Enum.GetValues(typeof(RuleOption));
+            randomizeRule = (RuleOption)values.GetValue(Random.Range(1, values.Length));
+        }
 
         // If correct door rules are set, we are generating traits for the correct door
         // Otherwise we randomize traits for doors
-        doorTraitsModel.Color = correctDoorRules?.Color ?? GetRandomTrait<DoorColor>() as DoorColor;
-        doorTraitsModel.Shape = correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape;
+        doorTraitsModel.Color = isCorrectDoor == false && randomizeRule == RuleOption.Color ? GetRandomTrait<DoorColor>() as DoorColor : correctDoorRules?.Color ?? GetRandomTrait<DoorColor>() as DoorColor;
+        doorTraitsModel.Shape = isCorrectDoor == false && randomizeRule == RuleOption.Shape ? GetRandomTrait<DoorShape>() as DoorShape : correctDoorRules?.Shape ?? GetRandomTrait<DoorShape>() as DoorShape;
         if (doorTraitsModel.Shape != null)
         {
-            doorTraitsModel.WoodGrain = correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
+            doorTraitsModel.WoodGrain = isCorrectDoor == false && randomizeRule == RuleOption.Grain ? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain : correctDoorRules?.WoodGrain ?? GetRandomTrait<WoodGrain>(doorTraitsModel.Shape.Shape) as WoodGrain;
         }
-        doorTraitsModel.StickerSettings = correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
-        doorTraitsModel.DoorHandle = correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
+        doorTraitsModel.StickerSettings = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorStickers>() as DoorStickers : correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
+        doorTraitsModel.DoorHandle = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorHandle>() as DoorHandle : correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
 
         door.SetTraits(doorTraitsModel);
 

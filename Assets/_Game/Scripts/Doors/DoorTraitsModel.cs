@@ -21,7 +21,7 @@ public class DoorTraitsModel
         if (Color?.Color != rules.Color?.Color && rules.Color?.Color != null) return false;
         if (rules.WoodGrain != null && WoodGrain?.RuleName != rules.WoodGrain?.RuleName) return false;
         if (rules.StickerSettings != null && StickerSettings.StickerAmount !=  rules.StickerSettings.StickerAmount) return false;
-        if (rules.DoorHandle != null && (DoorHandle?.SpriteLeft != rules.DoorHandle.SpriteLeft) || DoorHandle?.SpriteRight != rules.DoorHandle.SpriteRight) return false;
+        if (rules.DoorHandle != null && (DoorHandle?.SpriteLeft != rules.DoorHandle?.SpriteLeft) || DoorHandle?.SpriteRight != rules.DoorHandle?.SpriteRight) return false;
 
         return true;
     }
