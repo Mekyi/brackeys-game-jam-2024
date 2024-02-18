@@ -19,6 +19,7 @@ public class Main_Menu_Manager : MonoBehaviour
 
     public void playGame()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.ButtonClick, transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

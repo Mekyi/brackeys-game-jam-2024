@@ -105,6 +105,7 @@ public class Game_Manager : MonoBehaviour
 
     public void Reset_Game()
     {
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.ButtonClick, transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -145,6 +146,7 @@ public class Game_Manager : MonoBehaviour
 
             if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo)) // When a door is clicked, the game tells you whether it's the correct door or not
             {
+                AudioManager.Instance.PlayOneShot(FMODEvents.Instance.DoorOpen, transform.position);
                 DoorTraitsModel results = hitInfo.transform.GetComponent<Door>().Traits;
 
                 if (results != null)
