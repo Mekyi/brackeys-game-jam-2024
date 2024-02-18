@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorFrame: {fileID: 5112498978322371207}
-  _ovalFrame: {fileID: 21300000, guid: fd52f264139ab314ead4cc18b42f0c13, type: 3}
+  _ovalFrame: {fileID: 21300000, guid: 3e0dfc1703596d847bc35b3a7ace4165, type: 3}
   _woodGrainGameObject: {fileID: 2535086701497718534}
   _doorLeftHandleGameObject: {fileID: 1945808273916523177}
   _doorRightHandleGameObject: {fileID: 2269287018498428834}

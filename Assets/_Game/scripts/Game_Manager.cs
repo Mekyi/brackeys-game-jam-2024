@@ -124,20 +124,20 @@ public class Game_Manager : MonoBehaviour
             if (remainingTime > 0)
             {
                 int seconds = Mathf.FloorToInt(remainingTime % 60);
-                float milliSeconds = (remainingTime % 1) * 1000;
+                //float milliSeconds = (remainingTime % 1) * 1000;
 
-                if (milliSeconds < 100)
+                if (seconds < 10)
                 {
-                    Time_Left.text = string.Format("{0:00}:0{1:0}", seconds, milliSeconds);
+                    Time_Left.text = string.Format("{0:00} S", seconds);
                 }
                 else
                 {
-                    Time_Left.text = string.Format("{0:00}:{1:0}", seconds, milliSeconds);
+                    Time_Left.text = string.Format("{0:00} S", seconds);
                 }
             }
             else
             {
-                Time_Left.text = string.Format("00:000");
+                Time_Left.text = string.Format("00 S");
                 UpdateGameState(GameState.Lose);
             }
         }
