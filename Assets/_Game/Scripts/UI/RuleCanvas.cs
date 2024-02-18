@@ -9,13 +9,14 @@ public class RuleCanvas : MonoBehaviour
     private TextMeshProUGUI _ruleText;
 
     [SerializeField]
-    private GameObject _colorImage;
+    private GameObject _ruleImageObject;
 
-    [SerializeField]
-    private GameObject _shapeImage;
+    private RuleImage _ruleImage;
 
-    [SerializeField]
-    private GameObject _grainImage;
+    private void Awake()
+    {
+        _ruleImage = _ruleImageObject.GetComponent<RuleImage>();
+    }
 
     private void Update()
     {
@@ -36,5 +37,32 @@ public class RuleCanvas : MonoBehaviour
         }
 
         _ruleText.text = latestRule.GetRuleText();
+
+        var ruleType = latestRule.GetType();
+
+        if (ruleType == typeof(DoorColor))
+        {
+            _ruleImage.VisualizeColor((latestRule as DoorColor).Color);
+        }
+        else if (ruleType == typeof(DoorShape))
+        {
+            _ruleImage.VisualizeShape((latestRule as DoorShape).Shape);
+        }
+        else if (ruleType == typeof(WoodGrain))
+        {
+            _ruleImage.VisualizeGrain((latestRule as WoodGrain).RuleName);
+        }
+        else if (ruleType == typeof(DoorStickers))
+        {
+            _ruleImage.VisualizeStickers();
+        }
+        else if (ruleType == typeof(DoorHandle))
+        {
+            _ruleImage.VisualizeHandle((latestRule as DoorHandle).RuleName);
+        }
+        else
+        {
+            Debug.LogWarning($"{ruleType.GetType()} type visualization not configured");
+        }
     }
 }

@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Round 8
   m_EditorClassIdentifier: 
   <NewRule>k__BackingField: 0
-  <TraitPoolAdditions>k__BackingField: []
+  <TraitPoolAdditions>k__BackingField:
+  - {fileID: 11400000, guid: 4db0083fe2b2fa54eb784c0522da9f7a, type: 2}
+  - {fileID: 11400000, guid: 0402df1508701754e97688b5a70ec02f, type: 2}
+  - {fileID: 11400000, guid: 3f0da85bfec8af548a8697a36b351055, type: 2}
+  - {fileID: 11400000, guid: a338067b5a5edaf41acdce449345fa4b, type: 2}
   <DoorsToGenerate>k__BackingField: 5
   TimeLeft: 20

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c94aa6652b3bfc42b392df89bbc1bae, type: 3}
-  m_Name: Handle
+  m_Name: Pull
   m_EditorClassIdentifier: 
-  <RuleName>k__BackingField: Handle
+  <RuleName>k__BackingField: Pull
   <SpriteLeft>k__BackingField: {fileID: 21300000, guid: ac67ccc92bfbad747964e2c84c8a4b24, type: 3}
   <SpriteRight>k__BackingField: {fileID: 21300000, guid: ac67ccc92bfbad747964e2c84c8a4b24, type: 3}
