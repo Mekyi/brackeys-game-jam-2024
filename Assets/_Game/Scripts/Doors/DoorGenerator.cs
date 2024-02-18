@@ -138,7 +138,9 @@ public class DoorGenerator : MonoBehaviour
         for (int i = 0; i < randomizedDoors.Count; i++)
         {
             randomizedDoors[i].transform.position = _doorSpots[i].transform.position;
-            randomizedDoors[i].transform.SetParent(Game_Manager.Instance.DoorsParent.transform, true);
+            randomizedDoors[i].transform.SetParent(_doorSpots[i].transform, true);
+            randomizedDoors[i].transform.localPosition = Vector3.right * 3f;
+            //randomizedDoors[i].transform.SetParent(Game_Manager.Instance.DoorsParent.transform, true);
         }
     }
 

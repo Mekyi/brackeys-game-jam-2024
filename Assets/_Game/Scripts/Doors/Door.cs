@@ -29,12 +29,42 @@ public class Door : MonoBehaviour
     private SpriteRenderer _doorLeftHandleRenderer;
     private SpriteRenderer _doorRightHandleRenderer;
 
+    private bool _isDoorOpened = false;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _woodGrainRenderer = _woodGrainGameObject.GetComponent<SpriteRenderer>();
         _doorLeftHandleRenderer = _doorLeftHandleGameObject.GetComponent<SpriteRenderer>();
         _doorRightHandleRenderer = _doorRightHandleGameObject.GetComponent<SpriteRenderer>();
+    }
+
+    private void OnMouseOver()
+    {
+        OpenDoor(true);
+    }
+
+    private void OnMouseExit()
+    {
+        OpenDoor(false);
+    }
+
+    private void OpenDoor(bool shouldDoorBeOpen)
+    {
+        if (_isDoorOpened && shouldDoorBeOpen)
+        {
+            return;
+        }
+        else if (_isDoorOpened == false && shouldDoorBeOpen)
+        {
+            _isDoorOpened = true;
+            transform.parent.rotation = Quaternion.Euler(0f, 6f, 0f);
+        }
+        else if (shouldDoorBeOpen == false)
+        {
+            _isDoorOpened = false;
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
 
     public void SetTraits(DoorTraitsModel traits)
