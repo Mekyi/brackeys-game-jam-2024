@@ -51,6 +51,9 @@ public class Door : MonoBehaviour
 
     private void OpenDoor(bool shouldDoorBeOpen)
     {
+        //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        //transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+
         if (_isDoorOpened && shouldDoorBeOpen)
         {
             return;
@@ -63,7 +66,7 @@ public class Door : MonoBehaviour
         else if (shouldDoorBeOpen == false)
         {
             _isDoorOpened = false;
-            transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
+            transform.parent.rotation = Quaternion.identity;
         }
     }
 
