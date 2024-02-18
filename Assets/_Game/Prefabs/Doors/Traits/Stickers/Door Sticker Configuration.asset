@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Door Sticker Configuration
   m_EditorClassIdentifier: 
   <RuleName>k__BackingField: Sticker
-  <MinStickerAmount>k__BackingField: 1
+  <MinStickerAmount>k__BackingField: 5
   <MaxStickerAmount>k__BackingField: 8
