@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad168145b0e54f24abe9342e03cca03b, type: 3}
-  m_Name: Handle round
+  m_Name: Grain round
   m_EditorClassIdentifier: 
-  <NewRule>k__BackingField: 5
-  <TraitPoolAdditions>k__BackingField:
-  - {fileID: 11400000, guid: 04aa96ec4941a784cb02dbcbda8f003f, type: 2}
-  - {fileID: 11400000, guid: af37166930b4ffc45a843f640edec2dc, type: 2}
-  - {fileID: 11400000, guid: a913d2dcf7856244ebf34d5cfb25060a, type: 2}
-  <DoorsToGenerate>k__BackingField: 4
+  <NewRule>k__BackingField: 3
+  <TraitPoolAdditions>k__BackingField: []
+  <DoorsToGenerate>k__BackingField: 5
   TimeLeft: 20

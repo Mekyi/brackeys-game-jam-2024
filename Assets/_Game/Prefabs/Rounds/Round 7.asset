@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad168145b0e54f24abe9342e03cca03b, type: 3}
   m_Name: Round 7
   m_EditorClassIdentifier: 
-  <NewRule>k__BackingField: 3
+  <NewRule>k__BackingField: 0
   <TraitPoolAdditions>k__BackingField: []
   <DoorsToGenerate>k__BackingField: 5
-  TimeLeft: 20
+  TimeLeft: 15
