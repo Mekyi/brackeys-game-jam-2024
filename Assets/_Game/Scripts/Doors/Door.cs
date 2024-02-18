@@ -102,20 +102,25 @@ public class Door : MonoBehaviour
             return;
         }
 
-        var isHandleLeft = Random.value > 0.5f;
+        // Doors hinges are currently only on the left side so handle side randomization should be disabled until right side hinge is implemented
+        //var isHandleLeft = Random.value > 0.5f;
 
-        if (isHandleLeft)
-        {
-            _doorRightHandleGameObject.SetActive(false);
-            _doorLeftHandleGameObject.SetActive(true);
-            _doorLeftHandleRenderer.sprite = Traits.DoorHandle.SpriteLeft;
-        }
-        else
-        {
-            _doorLeftHandleGameObject.SetActive(false);
-            _doorRightHandleGameObject.SetActive(true);
-            _doorRightHandleRenderer.sprite = Traits.DoorHandle.SpriteRight;
-        }
+        //if (isHandleLeft)
+        //{
+        //    _doorRightHandleGameObject.SetActive(false);
+        //    _doorLeftHandleGameObject.SetActive(true);
+        //    _doorLeftHandleRenderer.sprite = Traits.DoorHandle.SpriteLeft;
+        //}
+        //else
+        //{
+        //    _doorLeftHandleGameObject.SetActive(false);
+        //    _doorRightHandleGameObject.SetActive(true);
+        //    _doorRightHandleRenderer.sprite = Traits.DoorHandle.SpriteRight;
+        //}
+
+        _doorLeftHandleGameObject.SetActive(false);
+        _doorRightHandleGameObject.SetActive(true);
+        _doorRightHandleRenderer.sprite = Traits.DoorHandle.SpriteRight;
     }
 
     private void SetWoodGrain()
