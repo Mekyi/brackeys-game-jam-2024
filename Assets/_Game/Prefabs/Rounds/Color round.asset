@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad168145b0e54f24abe9342e03cca03b, type: 3}
-  m_Name: Round 1
+  m_Name: Color round
   m_EditorClassIdentifier: 
   <NewRule>k__BackingField: 1
   <TraitPoolAdditions>k__BackingField:

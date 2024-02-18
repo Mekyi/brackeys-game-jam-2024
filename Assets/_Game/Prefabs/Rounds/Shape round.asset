@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad168145b0e54f24abe9342e03cca03b, type: 3}
+  m_Name: Shape round
+  m_EditorClassIdentifier: 
+  <NewRule>k__BackingField: 2
+  <TraitPoolAdditions>k__BackingField:
+  - {fileID: 11400000, guid: 57d898479a460f643985861f3dacad13, type: 2}
+  - {fileID: 11400000, guid: 50b7b2dbf3927a34cb1968d9bbdc8682, type: 2}
+  - {fileID: 11400000, guid: 504005dba9a7e1948a286e126bd96c42, type: 2}
+  - {fileID: 11400000, guid: 13ba7f8953b69a4418fcfe6ad93d8e43, type: 2}
+  - {fileID: 11400000, guid: ae604247693eaf44fb994b6a430f9b9d, type: 2}
+  - {fileID: 11400000, guid: a5abc9a5af240e2499e45d6f5230e14c, type: 2}
+  - {fileID: 11400000, guid: b81ec60d402e6294781ad70e6833d436, type: 2}
+  - {fileID: 11400000, guid: 631e409edd3ac7645823988ce546fb25, type: 2}
+  - {fileID: 11400000, guid: 3f14afbc151837f449baa94c2803d8dd, type: 2}
+  - {fileID: 11400000, guid: 1ee0bf48a367f9746a61c9c3c6e8a603, type: 2}
+  - {fileID: 11400000, guid: 77fb6b3aa6ba60d4bbd5e16ac286d2c4, type: 2}
+  - {fileID: 11400000, guid: 451fd3cae02a0e84aa207d80a21a7d6f, type: 2}
+  - {fileID: 11400000, guid: 6d520fa100d0d7c429c66bd2a787384a, type: 2}
+  - {fileID: 11400000, guid: c4c72e944d4d40e42ba2d79b8c5117c0, type: 2}
+  - {fileID: 11400000, guid: cf030584a3b6fa04d9e347cf08b6a27e, type: 2}
+  <DoorsToGenerate>k__BackingField: 5
+  TimeLeft: 20

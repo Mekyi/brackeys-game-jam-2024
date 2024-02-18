@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <NewRule>k__BackingField: 0
   <TraitPoolAdditions>k__BackingField: []
-  <DoorsToGenerate>k__BackingField: 4
-  TimeLeft: 30
+  <DoorsToGenerate>k__BackingField: 5
+  TimeLeft: 15
