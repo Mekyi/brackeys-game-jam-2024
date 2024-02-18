@@ -65,8 +65,6 @@ public class Door : MonoBehaviour
     {
         transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        Debug.Log(_isDoorOpened);
-
         if (_isDoorOpened == false)
         {
             transform.parent.rotation = Quaternion.Euler(0f, 0f, 0f);

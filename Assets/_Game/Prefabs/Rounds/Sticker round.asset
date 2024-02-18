@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfa9f998288b1604683ac58b0d2d5d35, type: 2}
   <DoorsToGenerate>k__BackingField: 5
   TimeLeft: 15
+  Walltype: {fileID: 21300000, guid: 297705b87fe89d54c9404df69f5c17a1, type: 3}

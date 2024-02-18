@@ -29,6 +29,10 @@ public class Game_Manager : MonoBehaviour
 
     private float remainingTime = 0;
 
+    private TextMeshProUGUI gameOverText;
+
+    public string GameOverReason { get; private set; }
+
     private void Awake()
     {
         if (Instance != null)
@@ -39,6 +43,7 @@ public class Game_Manager : MonoBehaviour
         {
             Instance = this;
         }
+        gameOverText = lose_Screen.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Start is called before the first frame update
@@ -74,6 +79,7 @@ public class Game_Manager : MonoBehaviour
                 remainingTime = 0;
                 break;
             case GameState.Lose:
+                gameOverText.text = GameOverReason;
                 remainingTime = 0;
                 break;
         }
@@ -118,20 +124,20 @@ public class Game_Manager : MonoBehaviour
             if (remainingTime > 0)
             {
                 int seconds = Mathf.FloorToInt(remainingTime % 60);
-                float milliSeconds = (remainingTime % 1) * 1000;
+                //float milliSeconds = (remainingTime % 1) * 1000;
 
-                if (milliSeconds < 100)
+                if (seconds < 10)
                 {
-                    Time_Left.text = string.Format("{0:00}:0{1:0}", seconds, milliSeconds);
+                    Time_Left.text = string.Format("{0:00} S", seconds);
                 }
                 else
                 {
-                    Time_Left.text = string.Format("{0:00}:{1:0}", seconds, milliSeconds);
+                    Time_Left.text = string.Format("{0:00} S", seconds);
                 }
             }
             else
             {
-                Time_Left.text = string.Format("00:000");
+                Time_Left.text = string.Format("00 S");
                 UpdateGameState(GameState.Lose);
             }
         }
@@ -170,5 +176,10 @@ public class Game_Manager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetGameOverReason(string reason)
+    {
+        GameOverReason = "GAME OVER\n Lost in the maze\n " + reason;
     }
 }

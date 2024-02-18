@@ -14,6 +14,11 @@ public class RuleManager : MonoBehaviour
 
     public DoorTraitBase LatestRule { get; private set; }
 
+    [field: SerializeField]
+    public GameObject Wall {  get; private set; }
+
+    private SpriteRenderer WallSpriteRenderer;
+
     private void Awake()
     {
         if (Instance != null)
@@ -24,6 +29,7 @@ public class RuleManager : MonoBehaviour
         {
             Instance = this;
         }
+        WallSpriteRenderer = Wall.GetComponent<SpriteRenderer>();
     }
 
     public void SetupRound(int roundNumber)
@@ -34,6 +40,11 @@ public class RuleManager : MonoBehaviour
 
         ActiveRules = updatedRules;
 
+        if (RoundConfigurations[roundNumber].Walltype != null)
+        {
+            WallSpriteRenderer.sprite = RoundConfigurations[roundNumber].Walltype;
+        }
+        
         Game_Manager.Instance.SetRoundTime(roundConfiguration.TimeLeft);
     }
 

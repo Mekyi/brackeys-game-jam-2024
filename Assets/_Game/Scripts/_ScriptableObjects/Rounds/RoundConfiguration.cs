@@ -28,4 +28,7 @@ public class RoundConfiguration : ScriptableObject
     [field: SerializeField]
     public float TimeLeft;
 
+    [field: SerializeField]
+    public Sprite Walltype;
+
 }
