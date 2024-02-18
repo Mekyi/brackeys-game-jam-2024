@@ -133,15 +133,13 @@ public class DoorGenerator : MonoBehaviour
 
     private void PlaceDoors(List<GameObject> doors)
     {
-        
         var randomizedDoors = doors.OrderBy(_ => Guid.NewGuid()).ToList();
         
         for (int i = 0; i < randomizedDoors.Count; i++)
         {
             randomizedDoors[i].transform.position = _doorSpots[i].transform.position;
+            randomizedDoors[i].transform.SetParent(Game_Manager.Instance.DoorsParent.transform, true);
         }
-
-        // TODO better randomization? <- No =)
     }
 
     private GameObject GenerateDoor(DoorTraitsModel correctDoorRules = null, bool isCorrectDoor = false)

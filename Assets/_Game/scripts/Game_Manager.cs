@@ -11,6 +11,9 @@ public class Game_Manager : MonoBehaviour
 
     public GameState GameState { get; private set; }
 
+    [field: SerializeField]
+    public GameObject DoorsParent { get; private set; }
+
     public static event Action<GameState> OnGameStateChanged;
 
     [SerializeField]
@@ -62,8 +65,10 @@ public class Game_Manager : MonoBehaviour
         {
             case GameState.StartRound:
                 HandleStartRound();
+                DoorsParent.SetActive(false);
                 break;
             case GameState.SelectDoor:
+                DoorsParent.SetActive(true);
                 break;
             case GameState.Victory:
                 remainingTime = 0;
