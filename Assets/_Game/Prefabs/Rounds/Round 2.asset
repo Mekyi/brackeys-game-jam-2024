@@ -29,5 +29,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d520fa100d0d7c429c66bd2a787384a, type: 2}
   - {fileID: 11400000, guid: c4c72e944d4d40e42ba2d79b8c5117c0, type: 2}
   - {fileID: 11400000, guid: cf030584a3b6fa04d9e347cf08b6a27e, type: 2}
-  <DoorsToGenerate>k__BackingField: 4
+  <DoorsToGenerate>k__BackingField: 3
   TimeLeft: 30
