@@ -1189,8 +1189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.4938965, y: 256.63342}
-  m_SizeDelta: {x: -1238.392, y: -710.59863}
+  m_AnchoredPosition: {x: -30.233093, y: 309.89313}
+  m_SizeDelta: {x: -588.1799, y: -777.1734}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702867079
 MonoBehaviour:
@@ -2071,11 +2071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8732231027582260260, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 569.7097
+      value: 666.243
       objectReference: {fileID: 0}
     - target: {fileID: 8732231027582260260, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 151.1174
+      value: 147.7887
       objectReference: {fileID: 0}
     - target: {fileID: 8732231027582260260, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_LocalScale.x
@@ -2091,11 +2091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8732231027582260260, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -32.177734
       objectReference: {fileID: 0}
     - target: {fileID: 8732231027582260260, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 309.9
+      value: 313.22867
       objectReference: {fileID: 0}
     - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_text
@@ -2105,7 +2105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_fontSize
-      value: 45
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
+      propertyPath: m_margin.w
+      value: 1.1094971
       objectReference: {fileID: 0}
     - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_fontAsset
@@ -2129,7 +2133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_fontSizeBase
-      value: 45
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 8781559265933736139, guid: ca35448b72e93274ea2dffdfa8b4ecfc, type: 3}
       propertyPath: m_sharedMaterial

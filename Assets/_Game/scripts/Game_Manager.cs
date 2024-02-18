@@ -29,6 +29,10 @@ public class Game_Manager : MonoBehaviour
 
     private float remainingTime = 0;
 
+    private TextMeshProUGUI gameOverText;
+
+    public string GameOverReason { get; private set; }
+
     private void Awake()
     {
         if (Instance != null)
@@ -39,6 +43,7 @@ public class Game_Manager : MonoBehaviour
         {
             Instance = this;
         }
+        gameOverText = lose_Screen.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Start is called before the first frame update
@@ -74,6 +79,7 @@ public class Game_Manager : MonoBehaviour
                 remainingTime = 0;
                 break;
             case GameState.Lose:
+                gameOverText.text = GameOverReason;
                 remainingTime = 0;
                 break;
         }
@@ -170,5 +176,10 @@ public class Game_Manager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetGameOverReason(string reason)
+    {
+        GameOverReason = "GAME OVER\n Lost in the maze\n " + reason;
     }
 }
