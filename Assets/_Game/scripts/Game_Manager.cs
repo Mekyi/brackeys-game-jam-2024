@@ -60,6 +60,11 @@ public class Game_Manager : MonoBehaviour
             CheckTimerStatus();
             CheckDoorSelect();
         }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void UpdateGameState(GameState newState)
