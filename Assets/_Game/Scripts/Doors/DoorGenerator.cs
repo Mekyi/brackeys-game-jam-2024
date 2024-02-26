@@ -194,7 +194,7 @@ public class DoorGenerator : MonoBehaviour
 
         }
         doorTraitsModel.StickerSettings = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorStickers>() as DoorStickers : correctDoorRules?.StickerSettings ?? GetRandomTrait<DoorStickers>() as DoorStickers;
-        doorTraitsModel.DoorHandle = isCorrectDoor == false && randomizeRule == RuleOption.Sticker ? GetRandomTrait<DoorHandle>() as DoorHandle : correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
+        doorTraitsModel.DoorHandle = isCorrectDoor == false && randomizeRule == RuleOption.Handle ? GetRandomTrait<DoorHandle>() as DoorHandle : correctDoorRules?.DoorHandle ?? GetRandomTrait<DoorHandle>() as DoorHandle;
 
         door.SetTraits(doorTraitsModel);
 
